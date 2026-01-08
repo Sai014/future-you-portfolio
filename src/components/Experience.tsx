@@ -19,10 +19,8 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 md:py-32 relative cyber-grid" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="experience" className="py-20 md:py-32 relative" ref={ref}>
+      <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,8 +28,8 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-display text-sm tracking-[0.3em] mb-4">
-            {"// WORK HISTORY"}
+          <p className="text-primary font-display text-sm tracking-widest mb-4 uppercase">
+            Work History
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
             <span className="gradient-text">Experience</span>
@@ -48,18 +46,12 @@ const Experience = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="glass-card p-8 md:p-10 relative overflow-hidden group hover:border-primary/50 transition-all duration-500">
-            {/* Animated border glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-            </div>
-
+          <div className="glass-card p-8 md:p-10 hover:border-primary/30 transition-all duration-300">
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shrink-0">
-                  <Briefcase className="w-7 h-7 text-background" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center shrink-0">
+                  <Briefcase className="w-7 h-7 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-2xl text-foreground mb-2">
@@ -94,9 +86,9 @@ const Experience = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
-                  className="flex items-start gap-4 group/item"
+                  className="flex items-start gap-4"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover/item:bg-primary/20 transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
                     <span className="text-primary font-display font-bold text-sm">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -109,11 +101,11 @@ const Experience = () => {
             </div>
 
             {/* Tech tags */}
-            <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-border/50">
+            <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-border">
               {["React.js", "Node.js", "JavaScript", "HTML", "CSS", "REST APIs"].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 bg-primary/10 text-primary font-body text-sm rounded-full border border-primary/20"
+                  className="px-3 py-1.5 bg-muted text-foreground font-body text-sm rounded-lg border border-border"
                 >
                   {tech}
                 </span>
