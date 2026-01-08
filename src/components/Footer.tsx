@@ -16,11 +16,7 @@ const Footer = () => {
             <span className="gradient-text">Sandeep</span>
           </a>
 
-          {/* Copyright */}
-          <p className="text-muted-foreground font-body text-sm flex items-center gap-2">
-            © {new Date().getFullYear()} Sai Sandeep R. Built with
-            <Heart className="w-4 h-4 text-primary inline" />
-          </p>
+          
 
           {/* Quick links */}
           <div className="flex items-center gap-6">
