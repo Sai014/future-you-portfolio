@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, ArrowRight } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -52,8 +52,8 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-display text-sm tracking-[0.3em] mb-4">
-            {"// GET IN TOUCH"}
+          <p className="text-primary font-display text-sm tracking-widest mb-4 uppercase">
+            Get In Touch
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
             <span className="gradient-text">Let's Connect</span>
@@ -70,7 +70,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-4"
           >
             <h3 className="font-display font-bold text-2xl text-foreground mb-6">
               Contact Information
@@ -86,10 +86,10 @@ const Contact = () => {
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="glass-card p-5 flex items-center gap-4 group hover:border-primary/50 transition-all duration-300"
+                    className="glass-card p-5 flex items-center gap-4 group hover:border-primary/30 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                      <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-muted-foreground font-body text-sm">{item.label}</p>
@@ -100,8 +100,8 @@ const Contact = () => {
                   </a>
                 ) : (
                   <div className="glass-card p-5 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-muted-foreground font-body text-sm">{item.label}</p>
@@ -123,7 +123,7 @@ const Contact = () => {
               Find Me Online
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {socialLinks.map((item, index) => (
                 <motion.a
                   key={item.label}
@@ -133,11 +133,11 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="glass-card p-5 flex items-center justify-between group hover:border-primary/50 transition-all duration-300"
+                  className="glass-card p-5 flex items-center justify-between group hover:border-primary/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                      <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-muted-foreground font-body text-sm">{item.label}</p>
@@ -146,7 +146,7 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <Send className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                 </motion.a>
               ))}
             </div>
@@ -160,11 +160,11 @@ const Contact = () => {
             >
               <a
                 href="mailto:sandeep.5112004@gmail.com"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-display font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-display font-semibold rounded-xl hover:bg-primary/90 transition-all duration-300 group"
               >
                 <Mail className="w-5 h-5" />
                 Send Me a Message
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </motion.div>
           </motion.div>

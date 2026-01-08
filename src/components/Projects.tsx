@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Calendar, Shield, Utensils } from "lucide-react";
+import { Calendar, Shield, Utensils } from "lucide-react";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -19,7 +19,6 @@ const Projects = () => {
         "Clean architecture with routes, controllers, and middleware",
       ],
       techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "bcrypt", "Helmet"],
-      gradient: "from-primary to-neon-purple",
     },
     {
       icon: Utensils,
@@ -33,7 +32,6 @@ const Projects = () => {
         "ML forecasting module integration through APIs",
       ],
       techStack: ["Node.js", "Express.js", "MongoDB", "Python", "Twilio API", "Google Maps API"],
-      gradient: "from-secondary to-neon-pink",
     },
   ];
 
@@ -47,8 +45,8 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-display text-sm tracking-[0.3em] mb-4">
-            {"// FEATURED WORK"}
+          <p className="text-primary font-display text-sm tracking-widest mb-4 uppercase">
+            Featured Work
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
             <span className="gradient-text">Projects</span>
@@ -69,24 +67,19 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group"
             >
-              <div className="glass-card p-8 h-full relative overflow-hidden hover:border-primary/50 transition-all duration-500">
-                {/* Gradient accent */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-50 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+              <div className="glass-card p-8 h-full hover:border-primary/30 transition-all duration-300">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                      <project.icon className="w-6 h-6 text-background" />
-                    </div>
-                    <div>
-                      <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center gap-2 text-muted-foreground font-body text-sm mt-1">
-                        <Calendar className="w-4 h-4" />
-                        {project.period}
-                      </div>
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                    <project.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-muted-foreground font-body text-sm mt-1">
+                      <Calendar className="w-4 h-4" />
+                      {project.period}
                     </div>
                   </div>
                 </div>
@@ -117,7 +110,7 @@ const Projects = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary font-body text-xs rounded-full border border-primary/20 hover:border-primary/50 transition-colors duration-300"
+                      className="px-3 py-1 bg-muted text-foreground font-body text-xs rounded-lg border border-border"
                     >
                       {tech}
                     </span>

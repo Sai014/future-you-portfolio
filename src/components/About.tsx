@@ -41,8 +41,8 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-display text-sm tracking-[0.3em] mb-4">
-            {"// ABOUT ME"}
+          <p className="text-primary font-display text-sm tracking-widest mb-4 uppercase">
+            About Me
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
             <span className="gradient-text">My Journey</span>
@@ -61,7 +61,7 @@ const About = () => {
           className="glass-card p-8 mb-16 max-w-4xl mx-auto"
         >
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <Award className="w-6 h-6 text-primary" />
             </div>
             <div>
@@ -87,17 +87,15 @@ const About = () => {
             Education
           </h3>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto space-y-4">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
-                className="glass-card p-6 relative group hover:border-primary/50 transition-all duration-300"
+                className="glass-card p-6 relative group hover:border-primary/30 transition-all duration-300"
               >
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
                     <h4 className="font-display font-semibold text-lg text-foreground mb-1">
@@ -111,7 +109,7 @@ const About = () => {
                       <Calendar className="w-4 h-4" />
                       {edu.period}
                     </div>
-                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary font-display text-sm rounded-full">
+                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary font-display text-sm rounded-lg">
                       {edu.score}
                     </span>
                   </div>

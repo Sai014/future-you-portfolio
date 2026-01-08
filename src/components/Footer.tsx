@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-8 border-t border-border/50">
+    <footer className="py-8 border-t border-border">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -13,9 +13,7 @@ const Footer = () => {
         >
           {/* Logo */}
           <a href="#home" className="font-display font-bold text-lg">
-            <span className="text-primary">{"<"}</span>
-            <span className="text-foreground">Sandeep</span>
-            <span className="text-primary">{"/>"}</span>
+            <span className="gradient-text">Sandeep</span>
           </a>
 
           {/* Copyright */}
@@ -30,7 +28,7 @@ const Footer = () => {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-muted-foreground hover:text-primary font-body text-sm transition-colors duration-300"
+                className="text-muted-foreground hover:text-foreground font-body text-sm transition-colors duration-300"
               >
                 {link}
               </a>
