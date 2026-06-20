@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Shield, Utensils } from "lucide-react";
+import { Github, ExternalLink, Search, Mic, ChevronRight } from "lucide-react";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -8,30 +8,34 @@ const Projects = () => {
 
   const projects = [
     {
-      icon: Shield,
-      title: "Authentication & Authorization System",
-      period: "06/2025 – 07/2025",
-      description: "A secure authentication system with JWT-based auth, role-based access control, and essential security features.",
+      icon: Search,
+      title: "RankPilot",
+      subtitle: "AI SEO Intelligence Platform",
+      description:
+        "An AI-powered SEO intelligence platform tracking 500+ keywords and analyzing hundreds of pages for SERP monitoring, competitor benchmarking, and content performance.",
       highlights: [
-        "Built signup/login with hashed passwords using bcrypt",
-        "JWT-based authentication with protected routes",
-        "Implemented CORS, Helmet, and rate limiting",
-        "Clean architecture with routes, controllers, and middleware",
+        "Async FastAPI backend powering 6+ SEO workflows: rank tracking, sitemap crawling, page auditing, competitor analysis, and Google Search Console integration",
+        "LLM-powered recommendation pipelines that identify content gaps and generate actionable optimization strategies",
+        "Scalable data pipelines processing SERP rankings, impressions, clicks, and keyword trends for near real-time intelligence",
       ],
-      techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "bcrypt", "Helmet"],
+      techStack: ["Python", "FastAPI", "LLMs", "PostgreSQL", "Async", "Google Search Console"],
+      github: "https://github.com/Sai014",
+      demo: "https://seo-rankpilot.vercel.app/",
     },
     {
-      icon: Utensils,
-      title: "Food Donation & Inventory Management",
-      period: "10/2024 – 02/2025",
-      description: "A comprehensive platform connecting restaurants and NGOs for efficient food donation with ML-powered forecasting.",
+      icon: Mic,
+      title: "Real-Time Voice Communication System",
+      subtitle: "Low-latency WebRTC voice platform",
+      description:
+        "A low-latency voice communication platform supporting real-time bidirectional audio streaming with integrated AI voice agents for natural conversations.",
       highlights: [
-        "Backend services for inventory logging and order tracking",
-        "Integrated Twilio for alerts and Google Maps for routing",
-        "Designed database schemas for restaurants and donors",
-        "ML forecasting module integration through APIs",
+        "Real-time bidirectional audio streaming built with WebRTC and WebSockets",
+        "FastAPI signaling services for session management and concurrent connection handling",
+        "Integrated AI voice agents over live audio streams with async MongoDB logging for non-blocking performance",
       ],
-      techStack: ["Node.js", "Express.js", "MongoDB", "Python", "Twilio API", "Google Maps API"],
+      techStack: ["WebRTC", "WebSockets", "FastAPI", "AI Voice Agents", "MongoDB", "Async"],
+      github: "https://github.com/Sai014",
+      demo: null,
     },
   ];
 
@@ -43,78 +47,101 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <p className="text-primary font-display text-sm tracking-widest mb-4 uppercase">
-            Featured Work
-          </p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-            <span className="gradient-text">Projects</span>
+          <p className="mono-label mb-3">// 03. projects</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold">
+            <span className="text-muted-foreground/40 font-mono mr-2">$</span>
+            <span className="gradient-text">git log --featured</span>
           </h2>
-          <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            A showcase of my recent projects demonstrating full-stack development capabilities 
-            and problem-solving skills.
-          </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group"
+              className="terminal flex flex-col group"
             >
-              <div className="glass-card p-8 h-full hover:border-primary/30 transition-all duration-300">
+              {/* Window bar */}
+              <div className="terminal-bar">
+                <span className="terminal-dot bg-[#ff5f56]" />
+                <span className="terminal-dot bg-[#ffbd2e]" />
+                <span className="terminal-dot bg-[#27c93f]" />
+                <span className="ml-3 font-mono text-xs text-muted-foreground truncate">
+                  {project.title.toLowerCase().replace(/\s+/g, "-")}/README.md
+                </span>
+              </div>
+
+              <div className="p-7 flex flex-col flex-1">
                 {/* Header */}
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0">
                     <project.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-muted-foreground font-body text-sm mt-1">
-                      <Calendar className="w-4 h-4" />
-                      {project.period}
-                    </div>
+                    <p className="font-mono text-xs text-secondary mt-0.5">{project.subtitle}</p>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground font-body mb-6 leading-relaxed">
+                <p className="text-muted-foreground font-body text-sm mb-5 leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Highlights */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2.5 mb-6 flex-1">
                   {project.highlights.map((highlight, hIndex) => (
                     <motion.li
                       key={hIndex}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.4, delay: index * 0.2 + hIndex * 0.1 + 0.3 }}
-                      className="flex items-start gap-3 text-muted-foreground font-body text-sm"
+                      className="flex items-start gap-2.5 text-muted-foreground font-body text-sm"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      {highlight}
+                      <ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>{highlight}</span>
                     </motion.li>
                   ))}
                 </ul>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-muted text-foreground font-body text-xs rounded-lg border border-border"
-                    >
+                    <span key={tech} className="tech-pill">
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    <Github className="w-4 h-4" />
+                    code
+                  </a>
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      live demo
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
