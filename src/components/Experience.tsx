@@ -8,7 +8,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Python AI Intern",
+      title: "Python AI Developer",
       company: "Appscrip",
       period: "Feb 2026 – Present",
       location: "Bengaluru",
